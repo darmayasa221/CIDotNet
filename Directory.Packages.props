@@ -3,8 +3,6 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="FastEndpoints.Swagger" Version="5.15.0" />
-    <PackageVersion Include="FastEndpoints" Version="5.15.0" />
     <PackageVersion Include="Ardalis.ApiEndpoints" Version="4.0.1" />
     <PackageVersion Include="Ardalis.GuardClauses" Version="4.0.1" />
     <PackageVersion Include="Ardalis.HttpClientTestExtensions" Version="3.0.0" />
