@@ -1,17 +1,17 @@
 using Ardalis.ApiEndpoints;
 using Microsoft.AspNetCore.Mvc;
 using Onboard.SharedKernel.Interfaces;
-using Onboard.Core.Aggregate.User;
+using Onboard.Core.Aggregate;
 using Swashbuckle.AspNetCore.Annotations;
-namespace Onboard.API.Endpoints.User;
+namespace Onboard.API.Endpoints.User.Create;
 
 public class Create : EndpointBaseAsync
-  .WithRequest<Request>
-  .WithActionResult<Response>
+  .WithRequest<CreateUserRequest>
+  .WithActionResult<CreateUserResponse>
 {
-  private readonly IRepository<UserAggregate> _repository;
+  private readonly IRepository<AUser> _repository;
 
-  public Create(IRepository<UserAggregate> repository)
+  public Create(IRepository<AUser> repository)
   {
     _repository = repository;
   }
@@ -23,24 +23,18 @@ public class Create : EndpointBaseAsync
     OperationId = "User.Create",
     Tags = new[] { "UserEndpoints" })
   ]
-  public override async Task<ActionResult<Response>> HandleAsync(
-    Request request,
+  public override async Task<ActionResult<CreateUserResponse>> HandleAsync(
+    CreateUserRequest r,
     CancellationToken cancellationToken = new())
   {
-    if (request.Name == null)
-    {
-      return BadRequest();
-    }
 
-    var newProject =  new UserAggregate(request.Name);
-    var createdItem = await _repository.AddAsync(newProject, cancellationToken);
-    var response = new Response
+    var newUser = new AUser(r.Name, r.Username, r.Email, r.RoleId);
+    var createdUser = await _repository.AddAsync(newUser, cancellationToken);
+    var response = new CreateUserResponse
     (
-      id: createdItem.Id,
-      name: createdItem.Name
+      id: createdUser.id
     );
-
     return Ok(response);
   }
-}
 
+}

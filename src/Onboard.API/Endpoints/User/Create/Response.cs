@@ -1,11 +1,11 @@
-
-public class Response
-{
-  public Response(int id, string name)
+namespace Onboard.API.Endpoints.User.Create;
+public class CreateUserResponse
+{  
+  public Guid Id { get; set; }
+  
+  public CreateUserResponse(Guid id)
   {
     Id = id;
-    Name = name;
   }
-  public int Id { get; set; }
-  public string Name { get; set; }
+
 }
