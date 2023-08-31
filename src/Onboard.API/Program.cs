@@ -1,15 +1,12 @@
 ﻿using Autofac.Extensions.DependencyInjection;
-// using Onboard.Core;
-// using Onboard.API;
 using Microsoft.OpenApi.Models;
 using Serilog;
-// using Ardalis.ListStartupServices;
 using Autofac;
-// using Onboard.Core;
 using Onboard.Infrastructure;
 using Onboard.Infrastructure.Data;
 using Onboard.Web;
-// using Microsoft.OpenApi.Models;
+using Onboard.Infrastructure.Middleware;
+
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
@@ -38,6 +35,9 @@ app.UseSwagger();
 
 // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"));
+// middleware chasbin 
+app.UseMiddleware<MiddlewareCasbin>();
+// end
 app.UseEndpoints(endpoints =>
 {
   endpoints.MapDefaultControllerRoute();
@@ -61,6 +61,5 @@ using (var scope = app.Services.CreateScope())
     logger.LogError(ex, "An error occurred seeding the DB. {exceptionMessage}", ex.Message);
   }
 }
-
 
 app.Run();
