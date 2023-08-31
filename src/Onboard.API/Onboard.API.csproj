@@ -15,7 +15,7 @@
     <PackageReference Include="Ardalis.ListStartupServices" />
     <PackageReference Include="Ardalis.Result" />
     <PackageReference Include="Ardalis.Result.AspNetCore" />
-    <PackageReference Include="Casbin.NET"/>
+    <PackageReference Include="Casbin.NET" />
     <PackageReference Include="MediatR" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" PrivateAssets="all" />
@@ -32,6 +32,20 @@
   
   <ItemGroup>
     <Folder Include="EndPoints/" />
+    <Folder Include="Endpoints\Article\" />
+    <Folder Include="Endpoints\Article\Create\" />
+    <Folder Include="Endpoints\Role\" />
+    <Folder Include="Endpoints\Role\Create\" />
+    <Folder Include="Endpoints\Article\Update\" />
+    <Folder Include="Endpoints\Article\GetById\" />
   </ItemGroup>
   
+  <ItemGroup>
+    <None Remove="Endpoints\Article\" />
+    <None Remove="Endpoints\Article\Create\" />
+    <None Remove="Endpoints\Role\" />
+    <None Remove="Endpoints\Role\Create\" />
+    <None Remove="Endpoints\Article\Update\" />
+    <None Remove="Endpoints\Article\GetById\" />
+  </ItemGroup>
 </Project>

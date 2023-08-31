@@ -6,7 +6,7 @@ namespace Onboard.Web;
 
 public static class SeedData
 {
-  public static readonly AUser TestProject1 = new AUser("root","root_username","root@email.com",1);
+  public static readonly AUser TestProject1 = new AUser("root","root_username","root@email.com",Guid.NewGuid());
   // public static readonly ToDoItem ToDoItem1 = new ToDoItem
   // {
   //   Title = "Get Sample Working",
@@ -33,11 +33,11 @@ public static class SeedData
   }
   public static void PopulateTestData(AppDbContext dbContext)
   {
-    foreach (var item in dbContext.Users)
+    foreach (var item in dbContext.User)
     {
       dbContext.Remove(item);
     }
-    dbContext.Users.Add(TestProject1);
+    dbContext.User.Add(TestProject1);
 
     dbContext.SaveChanges();
   }

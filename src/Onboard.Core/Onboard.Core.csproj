@@ -20,4 +20,12 @@
     <ProjectReference Include="..\Onboard.SharedKernel\Onboard.SharedKernel.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Aggregate\Article\" />
+    <None Remove="Aggregate\Role\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Aggregate\Article\" />
+    <Folder Include="Aggregate\Role\" />
+  </ItemGroup>
 </Project>

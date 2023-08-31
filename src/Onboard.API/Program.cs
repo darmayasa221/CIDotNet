@@ -44,6 +44,7 @@ app.UseEndpoints(endpoints =>
 });
 
 // Seed Database
+/*
 using (var scope = app.Services.CreateScope())
 {
   var services = scope.ServiceProvider;
@@ -61,6 +62,7 @@ using (var scope = app.Services.CreateScope())
     logger.LogError(ex, "An error occurred seeding the DB. {exceptionMessage}", ex.Message);
   }
 }
+*/
 
 
 app.Run();

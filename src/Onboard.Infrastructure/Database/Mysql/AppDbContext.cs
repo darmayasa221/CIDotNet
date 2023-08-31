@@ -17,7 +17,8 @@ public class AppDbContext : DbContext
     _dispatcher = dispatcher;
   }
 
-  public DbSet<AUser> Users => Set<AUser>();
+  public DbSet<AUser> User => Set<AUser>();
+  public DbSet<AArticle> Article => Set<AArticle>();
 
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {

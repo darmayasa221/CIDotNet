@@ -18,10 +18,10 @@
     "Onboard.API": {
       "commandName": "Project",
       "launchBrowser": true,
+      "applicationUrl": "http://localhost:57672/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "http://localhost:57672/"
+      }
     }
   }
 }

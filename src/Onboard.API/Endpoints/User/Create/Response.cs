@@ -7,5 +7,4 @@ public class CreateUserResponse
   {
     Id = id;
   }
-
 }
