@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Casbin.NET"/>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" />
     <PackageReference Include="Ardalis.Specification.EntityFrameworkCore" />
     <PackageReference Include="Autofac" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" />
@@ -19,6 +21,7 @@
   </ItemGroup>
   
   <ItemGroup>
+
     <ProjectReference Include="..\Onboard.Core\Onboard.Core.csproj" />
     <ProjectReference Include="..\Onboard.SharedKernel\Onboard.SharedKernel.csproj" />
   </ItemGroup>
