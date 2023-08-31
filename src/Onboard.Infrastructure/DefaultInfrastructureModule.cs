@@ -19,19 +19,18 @@ public class DefaultInfrastructureModule : Module
   public DefaultInfrastructureModule(bool isDevelopment, Assembly? callingAssembly = null)
   {
     _isDevelopment = isDevelopment;
-    var coreAssembly =
+    var userAssembly =
       Assembly.GetAssembly(typeof(AUser)); // TODO: Replace "Project" with any type from your Core project
-    // var infrastructureAssembly = Assembly.GetAssembly(typeof(StartupSetup));
-    if (coreAssembly != null)
+    var articleAssembly =
+      Assembly.GetAssembly(typeof(AArticle));
+    if (userAssembly != null)
     {
-      _assemblies.Add(coreAssembly);
+      _assemblies.Add(userAssembly);
     }
-
-    // if (infrastructureAssembly != null)
-    // {
-    //   _assemblies.Add(infrastructureAssembly);
-    // }
-
+      if (articleAssembly != null)
+    {
+      _assemblies.Add(articleAssembly);
+    }
     if (callingAssembly != null)
     {
       _assemblies.Add(callingAssembly);
@@ -40,15 +39,6 @@ public class DefaultInfrastructureModule : Module
 
   protected override void Load(ContainerBuilder builder)
   {
-    if (_isDevelopment)
-    // {
-    //   RegisterDevelopmentOnlyDependencies(builder);
-    // }
-    // else
-    // {
-    //   RegisterProductionOnlyDependencies(builder);
-    // }
-
     RegisterCommonDependencies(builder);
   }
 
@@ -92,18 +82,4 @@ public class DefaultInfrastructureModule : Module
         .AsImplementedInterfaces();
     }
   }
-
-  // private void RegisterDevelopmentOnlyDependencies(ContainerBuilder builder)
-  // {
-  //   // NOTE: Add any development only services here
-  //   builder.RegisterType<FakeEmailSender>().As<IEmailSender>()
-  //     .InstancePerLifetimeScope();
-  // }
-
-  // private void RegisterProductionOnlyDependencies(ContainerBuilder builder)
-  // {
-  //   // NOTE: Add any production only services here
-  //   builder.RegisterType<SmtpEmailSender>().As<IEmailSender>()
-  //     .InstancePerLifetimeScope();
-  // }
 }

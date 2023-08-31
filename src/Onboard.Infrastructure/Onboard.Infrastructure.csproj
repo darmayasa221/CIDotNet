@@ -21,7 +21,6 @@
   </ItemGroup>
   
   <ItemGroup>
-
     <ProjectReference Include="..\Onboard.Core\Onboard.Core.csproj" />
     <ProjectReference Include="..\Onboard.SharedKernel\Onboard.SharedKernel.csproj" />
   </ItemGroup>

@@ -6,22 +6,7 @@ namespace Onboard.Web;
 
 public static class SeedData
 {
-  public static readonly AUser TestProject1 = new AUser("root","root_username","root@email.com",Guid.NewGuid());
-  // public static readonly ToDoItem ToDoItem1 = new ToDoItem
-  // {
-  //   Title = "Get Sample Working",
-  //   Description = "Try to get the sample to build."
-  // };
-  // public static readonly ToDoItem ToDoItem2 = new ToDoItem
-  // {
-  //   Title = "Review Solution",
-  //   Description = "Review the different projects in the solution and how they relate to one another."
-  // };
-  // public static readonly ToDoItem ToDoItem3 = new ToDoItem
-  // {
-  //   Title = "Run and Review Tests",
-  //   Description = "Make sure all the tests run and review what they are doing."
-  // };
+  public static readonly AUser migrateUser = new AUser("root","root_username","root@email.com", 1);
 
   public static void Initialize(IServiceProvider serviceProvider)
   {
@@ -33,12 +18,15 @@ public static class SeedData
   }
   public static void PopulateTestData(AppDbContext dbContext)
   {
-    foreach (var item in dbContext.User)
-    {
-      dbContext.Remove(item);
-    }
-    dbContext.User.Add(TestProject1);
-
+    // foreach (var item in dbContext.User)
+    // {
+    //   dbContext.Remove(item);
+    // }
+   
+    var count = dbContext.User.Count();
+    if  (count == 0) {
+    dbContext.User.Add(migrateUser);
     dbContext.SaveChanges();
+    }
   }
 }

@@ -11,18 +11,16 @@ using Onboard.Infrastructure.Middleware;
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.UseSerilog((_, config) => config.ReadFrom.Configuration(builder.Configuration));
-
+// DB
 string connectionString = builder.Configuration.GetConnectionString("MysqlConnection");  //Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext(connectionString);
-
+//end
 builder.Services.AddControllersWithViews().AddNewtonsoftJson();
-
 builder.Services.AddSwaggerGen(c =>
 {
   c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
   c.EnableAnnotations();
 });
-
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 {
   // containerBuilder.RegisterModule(new DefaultCoreModule());
@@ -36,7 +34,7 @@ app.UseSwagger();
 // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"));
 // middleware chasbin 
-app.UseMiddleware<MiddlewareCasbin>();
+// app.UseMiddleware<MiddlewareCasbin>();
 // end
 app.UseEndpoints(endpoints =>
 {
@@ -44,7 +42,7 @@ app.UseEndpoints(endpoints =>
 });
 
 // Seed Database
-/*
+
 using (var scope = app.Services.CreateScope())
 {
   var services = scope.ServiceProvider;
@@ -62,6 +60,5 @@ using (var scope = app.Services.CreateScope())
     logger.LogError(ex, "An error occurred seeding the DB. {exceptionMessage}", ex.Message);
   }
 }
-*/
 
 app.Run();

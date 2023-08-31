@@ -30,7 +30,7 @@ public class Create : EndpointBaseAsync
 
     var newUser = new AUser(r.Name, r.Username, r.Email, r.RoleId);
     var createdUser = await _repository.AddAsync(newUser, cancellationToken);
-    var response = new CreateUserResponse(id: createdUser.id);
+    var response = new CreateUserResponse(createdUser.id,createdUser.Name, createdUser.Email);
     
     return Ok(response);
   }
