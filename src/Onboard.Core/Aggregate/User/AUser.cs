@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using Onboard.SharedKernel;
 using Onboard.SharedKernel.Interfaces;
 
@@ -11,8 +12,8 @@ public class AUser : EntityBase, IAggregateRoot
   public string Email { get; private set; }
   public int RoleId { get; private set; }
 
-
   private List<AArticle> _articles = new List<AArticle>();
+  [ForeignKey("userId")]
   public IEnumerable<AArticle> Articles => _articles.AsReadOnly();
 
   public AUser(string name, string username, string email, int roleId) 

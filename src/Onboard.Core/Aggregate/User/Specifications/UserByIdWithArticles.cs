@@ -14,18 +14,3 @@ namespace Onboard.Core.Aggregate.Article.Specifications
   }
 
 }
-
-
-    /*: Specification<AUser>, ISingleResultSpecification
-  {
-    public UserByIdWithArticles(Guid id)
-    {
-      Query
-          .Where(user => user.id == id)
-          .Include(article => article.Articles);
-   
-    }
-  }
-}
-
-    */
