@@ -1,2 +1,2 @@
-p, user, /user, (GET)|(PUT)|(POST)|(DELETE)
-p, employee, /cobak, GET
+p, admin, /user, (GET)|(PUT)|(POST)|(DELETE)
+p, employee, /user, GET
