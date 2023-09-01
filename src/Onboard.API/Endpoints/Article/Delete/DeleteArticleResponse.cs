@@ -1,12 +1,12 @@
 ﻿using System;
-namespace Onboard.API.Endpoints.Article.Update
+namespace Onboard.API.Endpoints.Article.Delete
 {
-  public class UpdateArticleResponse
+  public class DeleteArticleResponse
   {
     public Guid Id { get; set; }
     public string Message { get; set; }
 
-    public UpdateArticleResponse(Guid id, string message)
+    public DeleteArticleResponse(Guid id, string message)
     {
       Id = id;
       Message = message;

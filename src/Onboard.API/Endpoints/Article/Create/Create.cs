@@ -33,7 +33,7 @@ namespace Onboard.API.Endpoints.Article.Create
 
       var newArticle = new AArticle(r.Title, r.Content, r.Link, r.UserId);
       var createdArticle = await _repository.AddAsync(newArticle, cancellationToken);
-      var response = new CreateUserResponse(id: createdArticle.id);
+      var response = new CreateArticleResponse(id: createdArticle.id);
 
       return Ok(response);
     }

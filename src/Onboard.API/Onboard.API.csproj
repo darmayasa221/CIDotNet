@@ -34,18 +34,20 @@
     <Folder Include="EndPoints/" />
     <Folder Include="Endpoints\Article\" />
     <Folder Include="Endpoints\Article\Create\" />
-    <Folder Include="Endpoints\Role\" />
-    <Folder Include="Endpoints\Role\Create\" />
     <Folder Include="Endpoints\Article\Update\" />
     <Folder Include="Endpoints\Article\GetById\" />
+    <Folder Include="Endpoints\Article\Delete\" />
+    <Folder Include="Endpoints\Article\List\" />
+    <Folder Include="Endpoints\Article\ListByUserId\" />
   </ItemGroup>
   
   <ItemGroup>
     <None Remove="Endpoints\Article\" />
     <None Remove="Endpoints\Article\Create\" />
-    <None Remove="Endpoints\Role\" />
-    <None Remove="Endpoints\Role\Create\" />
     <None Remove="Endpoints\Article\Update\" />
     <None Remove="Endpoints\Article\GetById\" />
+    <None Remove="Endpoints\Article\Delete\" />
+    <None Remove="Endpoints\Article\List\" />
+    <None Remove="Endpoints\Article\ListByUserId\" />
   </ItemGroup>
 </Project>

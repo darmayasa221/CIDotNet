@@ -2,6 +2,7 @@
 using Ardalis.ApiEndpoints;
 using Microsoft.AspNetCore.Mvc;
 using Onboard.API.Endpoints.User.Create;
+using Onboard.API.Endpoints.User.Update;
 using Onboard.Core.Aggregate;
 using Onboard.SharedKernel.Interfaces;
 using Swashbuckle.AspNetCore.Annotations;
@@ -45,7 +46,8 @@ namespace Onboard.API.Endpoints.Article.Update
       await _repository.UpdateAsync(existingArticle, cancellationToken);
 
       var response = new UpdateArticleResponse(
-          article: new ArticleRecord(existingArticle.id, existingArticle.title)
+        id: request.id,
+        message: "success"
       );
 
       return Ok(response);

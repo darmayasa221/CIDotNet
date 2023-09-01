@@ -23,9 +23,11 @@
   <ItemGroup>
     <None Remove="Aggregate\Article\" />
     <None Remove="Aggregate\Role\" />
+    <None Remove="Aggregate\User\Specifications\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Aggregate\Article\" />
     <Folder Include="Aggregate\Role\" />
+    <Folder Include="Aggregate\User\Specifications\" />
   </ItemGroup>
 </Project>
