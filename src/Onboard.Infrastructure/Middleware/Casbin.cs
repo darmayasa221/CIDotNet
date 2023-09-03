@@ -37,7 +37,7 @@ public class MiddlewareCasbin
       var user = await _repository.GetByIdAsync(userId, _cancellationToken);
       if (user == null)
       {
-        await context.Response.WriteAsync("user not found");
+        await context.Response.WriteAsync("unauthorized");
         return;
       }
 
@@ -48,7 +48,7 @@ public class MiddlewareCasbin
       var flag = await e.EnforceAsync(role, path, method);
       if (!flag)
       {
-        await context.Response.WriteAsync("not admin");
+        await context.Response.WriteAsync("not admin role.");
         return;
       }
       await _next.Invoke(context);
