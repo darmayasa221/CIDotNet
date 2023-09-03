@@ -1,2 +1,5 @@
-p, admin, /user, (GET)|(PUT)|(POST)|(DELETE)
-p, employee, /user, GET
+p, admin, true, (GET)|(PUT)|(POST)|(DELETE)
+p, employee, true, GET
+
+g, (/user/:id)|(/user)|(/article)|(/article:id), admin
+g, (/user/:id)|(/article)|(/article:id), employee

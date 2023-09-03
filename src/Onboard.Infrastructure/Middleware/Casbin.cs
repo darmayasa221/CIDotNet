@@ -52,6 +52,9 @@ public class MiddlewareCasbin
         return;
       }
       await _next.Invoke(context);
+      return;
     }
+    await context.Response.WriteAsync("unauthorized");
+    return;
   }
 }
