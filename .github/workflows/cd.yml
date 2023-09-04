@@ -19,7 +19,7 @@ jobs:
 
       - name: Change working directory
         working-directory: ./
-        run: cd /TrainingDotnet6
+        run: ls
         
 
       - name: Restore dependencies
