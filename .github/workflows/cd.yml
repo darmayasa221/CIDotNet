@@ -18,7 +18,7 @@ jobs:
           dotnet-version: 6.0.x
 
       - name: Change working directory
-        working-directory: /TrainingDotnet6
+        working-directory: ./
         run: cd /TrainingDotnet6
         
 
