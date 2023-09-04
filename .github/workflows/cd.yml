@@ -19,7 +19,7 @@ jobs:
 
       - name: Change working directory
         working-directory: ./
-        run: ls
+        run: cd ./
         
 
       - name: Restore dependencies
