@@ -18,8 +18,8 @@ jobs:
           dotnet-version: 6.0.x
 
       - name: Change working directory
-        working-directory: ./TrainingDotnet6
-        run: cd ./TrainingDotnet6
+        working-directory: /TrainingDotnet6
+        run: cd /TrainingDotnet6
         
 
       - name: Restore dependencies
